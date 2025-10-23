@@ -1,0 +1,362 @@
+/*
+===================================
+Estilos Globais e Reset Básico
+===================================
+*/
+:root {
+    /* Cores */
+    --cor-base: #1a1a1a;        /* Preto quase total para fundo/texto */
+    --cor-destaque: #FFD700;    /* Dourado (Gold) para detalhes e botões */
+    --cor-secundaria: #333;     /* Cinza escuro para seções e bordas */
+    --cor-clara: #f4f4f4;       /* Branco off-white para fundo de elementos */
+    --cor-texto-claro: #ffffff; /* Branco puro para texto em fundos escuros */
+
+    /* Fontes */
+    --fonte-principal: 'Arial', sans-serif;
+    --fonte-titulo: 'Georgia', serif; /* Fonte mais elegante para títulos */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-base);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    color: var(--cor-destaque);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffd700cc; /* Dourado ligeiramente mais escuro ao passar o mouse */
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+/*
+===================================
+Header e Navegação
+===================================
+*/
+header {
+    background-color: #000000; /* Preto total para o topo */
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--cor-destaque); /* Linha dourada moderna */
+}
+
+.logo h1 {
+    font-size: 2em;
+    color: var(--cor-destaque);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: var(--cor-destaque);
+}
+
+/*
+===================================
+Estilos para o Menu Dropdown
+===================================
+*/
+
+/* Container do Dropdown (o LI de Roupas) */
+.dropdown {
+    position: relative; /* Essencial para que o menu flutuante seja posicionado corretamente */
+    display: inline-block;
+}
+
+/* O Link principal do Dropdown (Roupas) */
+.dropbtn {
+    padding: 10px 0; 
+}
+
+/* O Conteúdo do Dropdown (Masculino, Feminino, Ver Tudo) */
+.dropdown-content {
+    /* Esconde o menu por padrão */
+    display: none; 
+    
+    /* Posição e aparência do menu flutuante */
+    position: absolute;
+    background-color: #000000; /* Fundo preto total para o submenu */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    padding: 5px 0;
+    border: 1px solid var(--cor-destaque); /* Borda Dourada */
+    top: 100%; /* Posiciona o menu logo abaixo do item pai */
+    left: 0;
+}
+
+/* Links dentro do Dropdown */
+.dropdown-content a {
+    color: var(--cor-texto-claro) !important; /* Cor clara do texto */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: normal; 
+    text-transform: none; 
+}
+
+/* Efeito Hover nos links do Dropdown */
+.dropdown-content a:hover {
+    background-color: var(--cor-secundaria); /* Fundo cinza escuro ao passar o mouse */
+    color: var(--cor-destaque) !important; /* Texto fica dourado ao passar o mouse */
+}
+
+/* MOSTRA o menu ao passar o mouse sobre o LI pai */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+===================================
+Botões (Geral)
+===================================
+*/
+.btn-comprar, .btn-detalhes {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-base); /* Texto preto no botão dourado */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-comprar:hover, .btn-detalhes:hover {
+    background-color: #e6c500; /* Dourado mais suave no hover */
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+}
+
+/*
+===================================
+Main Content e Seções
+===================================
+*/
+main {
+    padding: 20px 5%;
+}
+
+section {
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed var(--cor-secundaria);
+}
+
+/* Banner Principal */
+.banner-principal {
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.banner-principal h2 {
+    font-size: 3em;
+    color: var(--cor-destaque);
+    margin-bottom: 10px;
+}
+
+.banner-principal p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Produtos em Destaque */
+.produtos-destaque h2 {
+    color: var(--cor-destaque);
+    margin-bottom: 30px;
+}
+
+.lista-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card-produto {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-destaque);
+    padding: 15px;
+    width: 300px; 
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.card-produto:hover {
+    transform: scale(1.03);
+    border-color: #ffffff;
+}
+
+.card-produto img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.card-produto h3 {
+    color: var(--cor-texto-claro);
+    font-size: 1.3em;
+}
+
+.preco {
+    color: var(--cor-destaque);
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Sobre Nós */
+.sobre-nos {
+    text-align: center;
+    border-bottom: none;
+}
+
+.sobre-nos h2 {
+    color: var(--cor-destaque);
+}
+
+.sobre-nos p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*
+===================================
+Rodapé (Footer)
+===================================
+*/
+footer {
+    background-color: #000000;
+    color: var(--cor-secundaria);
+    padding: 30px 5%;
+    text-align: center;
+    border-top: 2px solid var(--cor-destaque);
+}
+
+.rodape-links ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.rodape-links ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.rodape-links ul li a {
+    color: var(--cor-clara);
+}
+
+.redes-sociais {
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+.redes-sociais a {
+    margin: 0 5px;
+}
+
+footer p {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--cor-secundaria);
+}
+
+
+/*
+===================================
+Responsividade (Mobile First)
+===================================
+*/
+
+/* Para telas menores que 768px (ex: tablets e celulares) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .lista-produtos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-produto {
+        width: 90%; 
+    }
+
+    .banner-principal h2 {
+        font-size: 2em;
+    }
+    
+    /* Correção para o Dropdown no mobile */
+    .dropdown {
+        width: 100%; 
+        text-align: center;
+    }
+    .dropdown-content {
+        /* No mobile, o menu aparece abaixo do item, ocupando a largura total */
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: var(--cor-secundaria); /* Fundo um pouco mais claro no mobile */
+    }
+    .dropdown-content a {
+        padding: 8px 16px; 
+    }
+}
